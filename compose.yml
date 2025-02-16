@@ -1,0 +1,25 @@
+services:
+  node-manager:
+    build: ./docker/node-manager
+    container_name: node-manager
+    restart: always
+    networks:
+      - node-network
+
+  target1:
+    build: ./docker/target1
+    container_name: target1
+    restart: always
+    networks:
+      - node-network
+
+  target2:
+    build: ./docker/target2
+    container_name: target2
+    restart: always
+    networks:
+      - node-network
+
+networks:
+  node-network:
+    driver: bridge
